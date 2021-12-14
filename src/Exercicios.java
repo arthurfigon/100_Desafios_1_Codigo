@@ -66,6 +66,31 @@ public class Exercicios {
                 case 53 -> ExercicioCinquentaTres();
                 case 54 -> ExercicioCinquentaQuatro();
                 case 55 -> ExercicioCinquentaCinco();
+                case 56 -> ExercicioCinquentaSeis();
+                case 57 -> ExercicioCinquentaSete();
+                case 58 -> ExercicioCinquentaOito();
+                case 59 -> ExercicioCinquentaNove();
+                case 60 -> ExercicioSessenta();
+                case 61 -> ExercicioSessentaUm();
+                case 62 -> ExercicioSessentaDois();
+                case 63 -> ExercicioSessentaTres();
+                case 64 -> ExercicioSessentaQuatro();
+                case 65 -> ExercicioSessentaCinco();
+                case 66 -> ExercicioSessentaSeis();
+                case 67 -> ExercicioSessentaSete();
+                case 68 -> ExercicioSessentaOito();
+                case 69 -> ExercicioSessentaNove();
+                case 70 -> ExercicioSetenta();
+                case 71 -> ExercicioSetentaUm();
+                case 72 -> ExercicioSetentaDois();
+                case 73 -> ExercicioSetentaTres();
+                case 74 -> ExercicioSetentaQuatro();
+                case 75 -> ExercicioSetentaCinco();
+                case 76 -> ExercicioSetentaSeis();
+                case 77 -> ExercicioSetentaSete();
+                case 78 -> ExercicioSetentaOito();
+                case 79 -> ExercicioSetentaNove();
+                case 80 -> ExercicioOitenta();
                 default -> continuaMenu = false;
             }
             System.out.println("\n");
@@ -1010,5 +1035,456 @@ public class Exercicios {
             System.out.printf("Time Vencedor: %s",timeDois);
         else
             System.out.println("Partida Empatada");
+    }
+
+
+    /*Ler dois valores e imprimir uma das três mensagens a
+    seguir:
+    -> ‘Números iguais’, caso os números sejam iguais;
+    -> ‘Primeiro é maior’, caso o primeiro seja maior que o
+    segundo;
+    -> ‘Segundo maior’, caso o segundo seja maior que o
+    primeiro;*/
+    private static void ExercicioCinquentaSeis(){
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("Diz um número: ");
+        double valorUm = entrada.nextDouble();
+        System.out.println("Diz um número: ");
+        double valorDois = entrada.nextDouble();
+        if(valorUm > valorDois)
+            System.out.println("Primeiro é maior");
+        else if(valorDois > valorUm)
+            System.out.println("Segundo é maior");
+        else
+            System.out.println("Números Iguais");
+    }
+
+
+    /*Alcool: Até 20 litros, 3% de desconto
+    * Alcool: Acima de 20 litros, 5% de desconto
+    * Gasolina: Até 20 litros, 4% de desconto
+    * Gasolina: Acima de 20 litros, 6% de desconto
+    * Escreva um programa que leia o número de litros vendidos
+    * e o tipo de combustível (codificado da seguinte forma: A-álcool, G-gasolina),
+    * calcule e imprima o valor a ser pago pelo cliente sabendo-se que o preço
+    *  do litro da gasolina é R$ 3,30 e o preço do litro do álcool é R$ 2,90.*/
+    private static void ExercicioCinquentaSete(){
+        Scanner entrada = new Scanner(System.in);
+        Scanner entrada2 = new Scanner(System.in);
+        System.out.println("Informe que quantidade de Litros Vendidos: ");
+        double litrosVendidos = entrada.nextDouble();
+        System.out.println("Tipo de Combustível");
+        String combustivel = entrada2.nextLine();
+        if(combustivel.equals("A") || combustivel.equals("Álcool"))
+            if (litrosVendidos > 20)
+                System.out.printf("Preço: %.2f", 2.90*litrosVendidos*0.95);
+            else
+                System.out.printf("Preço: %.2f", 2.90*litrosVendidos*0.97);
+        else if (combustivel.equals("G") || combustivel.equals("Gasolina"))
+            if (litrosVendidos > 20)
+                System.out.printf("Preço: %.2f", 3.30*litrosVendidos*0.96);
+            else
+                System.out.printf("Preço: %.2f", 3.30*litrosVendidos*0.94);
+    }
+
+
+    /*Escreva um programa que leia as idades de 2 homens
+    e de 2 mulheres (considere que as idades dos homens serão
+    sempre diferentes entre si, bem como as das mulheres).
+    Calcule e escreva a soma das idades do homem mais velho
+    com a mulher mais nova, e o produto das idades do homem mais novo com a mulher mais velha.*/
+    private static void ExercicioCinquentaOito(){
+        Scanner entrada = new Scanner(System.in);
+        int numeroHomens = 2;
+        int numeroMulheres = 2;
+        int[] homens = new int[numeroHomens];
+        int[] mulheres = new int[numeroMulheres];
+        for(int i = 0; i < numeroHomens; i++){
+            System.out.printf("Informe a idade do homem %d: ",i+1);
+            homens[i] = entrada.nextInt();
+        }
+        for(int i = 0; i < numeroMulheres; i++){
+            System.out.printf("Informe a idade da mulher %d: ",i+1);
+            mulheres[i] = entrada.nextInt();
+        }
+        OrdenaCrescenteInt(mulheres);
+        OrdenaCrescenteInt(homens);
+        System.out.printf("Soma da idade do mais velho com mais nova: %d\n" +
+                        "Produto da idade do mais novo com mais velha: %d ",
+                homens[numeroHomens-1]+mulheres[0], homens[0]*mulheres[numeroMulheres-1]);
+    }
+
+
+    /*Se o cliente comprar mais de 8 Kg em frutas ou o valor total da compra ultrapassar R$ 25,00,
+    receberá ainda um desconto de 10% sobre este total. Escreva um programa para ler a quantidade
+    (em Kg) de morangos e a quantidade (em Kg) de maças adquiridas e escreva o valor a ser
+    pago pelo cliente.*/
+    private static void ExercicioCinquentaNove(){
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("Informe quantos kilos de maçã: ");
+        double maca = entrada.nextDouble();
+        System.out.println("Informe quantos kilos de morango: ");
+        double morango = entrada.nextDouble();
+        double newValor = 0;
+
+        if (morango <= 5)
+            newValor += 2.5*morango;
+        else
+            newValor += 2.2*morango;
+        if (maca <= 5)
+            newValor += 1.8*maca;
+        else
+            newValor += 1.5*maca;
+
+        if(maca+morango > 8)
+            System.out.printf("Preço %.2f: ",newValor*0.9);
+        else if(newValor > 25)
+            System.out.printf("Preço %.2f: ",newValor*0.9);
+        else
+            System.out.printf("Preço %.2f: ",newValor);
+    }
+
+    /*Faça um programa para ler um número que é um código de usuário. Caso este código
+    seja diferente de um código armazenado internamente no programa (igual a 1234)
+    deve ser apresentada a mensagem ‘Usuário inválido!’. Caso o Código seja correto,
+    deve ser lido outro valor que é a senha.
+    Se esta senha estiver incorreta (a certa é 9999) deve
+    ser mostrada a mensagem ‘senha incorreta’. Caso a senha
+    esteja correta, deve ser mostrada a mensagem ‘Acesso
+    permitido’.*/
+    private static void ExercicioSessenta(){
+        Scanner entrada = new Scanner(System.in);
+        String[] contaCadastrada = {"1234","9999"};
+        String codigo;
+        String senha;
+        boolean autenticado=false;
+        while(!autenticado) {
+            System.out.println("Informe seu código: ");
+            codigo = entrada.nextLine();
+            autenticado = ComparaDados(contaCadastrada[0],codigo);
+            if(!autenticado)
+                System.out.println("Código Inválido...");
+        }
+        autenticado = false;
+        while(!autenticado) {
+            System.out.println("Informe sua senha: ");
+            senha = entrada.nextLine();
+            autenticado = ComparaDados(contaCadastrada[1],senha);
+            if(!autenticado)
+                System.out.println("Senha Inválida...");
+        }
+        System.out.println("Logando no sistema...");
+
+    }
+
+    private static boolean ComparaDados(String cadastrado, String userInfo){
+        return userInfo.equals(cadastrado);
+    }
+
+    private static int LerInt(String pergunta){
+        Scanner entrada = new Scanner(System.in);
+        System.out.println(pergunta);
+        return entrada.nextInt();
+    }
+
+    private static double LerDouble(String pergunta){
+        Scanner entrada = new Scanner(System.in);
+        System.out.println(pergunta);
+        return entrada.nextDouble();
+    }
+
+    private static String LerString(String pergunta){
+        Scanner entrada = new Scanner(System.in);
+        System.out.println(pergunta);
+        return entrada.nextLine();
+    }
+
+
+    /*Faça um programa para ler: a descrição do produto
+    (nome), a quantidade adquirida e o preço unitário. Calcular
+    e escrever o total (total = quantidade adquirida * preço unitário), o desconto e o total a pagar
+    (total a pagar = total - desconto), sabendo-se que:
+    - Se quantidade <= 5 o desconto será de 2%
+    - Se quantidade > 5 e quantidade <=10 o desconto será
+    de 3%
+    - Se quantidade > 10 o desconto será de 5%*/
+    private static void ExercicioSessentaUm(){
+        String nome = LerString("Informe a Descrição do Produto: ");
+        int qntdAdquirida = LerInt("Informe a Quantidade Adquirida: ");
+        double precoUnitario = LerDouble("Informe o Preço Unitario: ");
+        double total = qntdAdquirida * precoUnitario;
+        if (qntdAdquirida <= 5)
+            total *= 0.98;
+        else if (qntdAdquirida <=10)
+            total *= 0.97;
+        else
+            total *= 0.95;
+        System.out.printf("%s - Total: R$ %.2f", nome, total);
+    }
+
+
+    /*Faça um programa para ler as 3 notas obtidas por um
+    aluno nas 3 verificações e a média dos exercícios que fazem parte da avaliação.
+    Calcular a média de aproveitamento, usando a fórmula abaixo e escrever o conceito do aluno
+    de acordo com a tabela de conceitos mais abaixo:
+
+    Media de Aproveitamento = (n1 + n2 *2 + n3 *3 + media_dos_exercicios)/7
+
+    >= 9   --          A
+    >=7,5 e < 9   --   B
+    >=6 e < 7,5   --   C
+    < 6           --   D*/
+    private static void ExercicioSessentaDois(){
+        double notaUm = LerDouble("Informe a Nota 1: ");
+        double notaDois = LerDouble("Informe a Nota 2: ");
+        double notaTres = LerDouble("Informe a Nota 3: ");
+        double mediaDosExercicios = LerDouble("Informe a Média dos Exercicios: ");
+        double mediaAproveitamento = (notaUm + notaDois *2 + notaTres *3 + mediaDosExercicios)/7;
+        String conceito;
+        if(mediaAproveitamento >= 9)
+            conceito = "A";
+        else if(mediaAproveitamento >= 7.5)
+            conceito = "B";
+        else if(mediaAproveitamento >= 6)
+            conceito = "C";
+        else
+            conceito = "D";
+        System.out.printf("%s - Media de Aproveitamento: %.2f",conceito,mediaAproveitamento);
+    }
+
+
+    /*Uma empresa quer verificar se um empregado está
+    qualificado para a aposentadoria ou não. Para estar em
+    condições, um dos seguintes requisitos deve ser satisfeito:
+    - Ter no mínimo 65 anos de idade.
+    - Ter trabalhado no mínimo 30 anos.
+    - Ter no mínimo 60 anos e ter trabalhado no mínimo 25
+    anos.
+    Com base nas informações acima, faça um programa
+    que leia: o número do empregado (código), o ano de seu
+    nascimento e o ano de seu ingresso na empresa. O programa deverá escrever
+    a idade e o tempo de trabalho do empregado e a mensagem 'Requerer aposentadoria' ou 'Não requerer'. */
+    private static void ExercicioSessentaTres(){
+        String codigo = LerString("Informe seu Código: ");
+        int nascimento = LerInt("Informe seu ano de nascimento: ");
+        int ingressoEmpresa = LerInt("Informe seu ano de ingresso: ");
+        int idade = 2021 - nascimento;
+        int tempoTrabalhando = 2021 - ingressoEmpresa;
+
+        System.out.printf("Código: %s\nIdade: %d\nTempo Trabalhando: %d\n",codigo,idade,tempoTrabalhando);
+        if(idade >= 65)
+            System.out.println("Requerer Aposentadoria...");
+        else if(tempoTrabalhando >= 30)
+            System.out.println("Requerer Aposentadoria...");
+        else if(idade >= 60 && tempoTrabalhando >= 25)
+            System.out.println("Requerer Aposentadoria...");
+        else
+            System.out.println("Não Requerer Aposentadoria...");
+    }
+
+
+    /*Escreva um programa para ler 2 valores e se o segundo valor informado for ZERO,
+    deve ser lido um novo valor, ou seja, para o segundo valor não pode ser aceito o
+    valor zero e imprimir o resultado da divisão do primeiro valor lido pelo segundo valor lido.*/
+    private static void ExercicioSessentaQuatro(){
+        int valorUm = LerInt("Informe o primeiro valor: ");
+        int valorDois;
+        do{
+            valorDois = LerInt("Informe o segundo valor: ");
+        }while(valorDois == 0);
+        System.out.printf("Divisão: %.2f", (double)valorUm/(double)valorDois);
+    }
+
+
+    /*Escreva um programa para ler as notas da 1ª e 2ª avaliações de um aluno,
+    calcule e imprima a média desse aluno. Só devem ser aceitos valores válidos durante a leitura
+    (0 a 10) para cada nota.*/
+    private static void ExercicioSessentaCinco(){
+        int valorUm, valorDois;
+        do{
+            valorUm = LerInt("Informe o primeiro valor: ");
+            valorDois = LerInt("Informe o segundo valor: ");
+        }while((valorUm < 0 || valorUm > 10) || (valorDois < 0 || valorDois > 10));
+        System.out.printf("Média: %.2f", ((double)valorUm+(double)valorDois)/2);
+    }
+
+
+    /*Escreva um programa para imprimir os números de 1
+    (inclusive) a 10 (inclusive) em ordem crescente*/
+    private static void ExercicioSessentaSeis(){
+        for(int i=1;i<11;i++){
+            System.out.println(i);
+        }
+    }
+
+
+    /*Escreva um programa para imprimir os números de 1
+    (inclusive) a 10 (inclusive) em ordem decrescente.*/
+    private static void ExercicioSessentaSete(){
+        for(int i=10;i>0;i--){
+            System.out.println(i);
+        }
+    }
+
+
+    /*Escreva um programa para imprimir os 10 primeiros
+    números inteiros maiores que 100.*/
+    private static void ExercicioSessentaOito(){
+        for(int i=101;i<111;i++){
+            System.out.println(i);
+        }
+    }
+
+
+    /*Ler um valor N e imprimir todos os valores inteiros
+    entre 1 (inclusive) e N (inclusive). Considere que o N será
+    sempre maior que ZERO.*/
+    private static void ExercicioSessentaNove(){
+        int valor = LerInt("Informe um valor: ");
+        for(int i=1;i<=valor;i++){
+            System.out.println(i);
+        }
+    }
+
+
+    /*Escreva um programa que calcule e imprima a tabuada
+    do 8 (1 a 10).*/
+    private static void ExercicioSetenta(){
+        for(int i=1;i<=10;i++){
+            System.out.println(8*i);
+        }
+    }
+
+
+    /*Ler um valor inteiro (aceitar somente valores entre 1 e
+    10) e escrever a tabuada de 1 a 10 do valor lido.*/
+    private static void ExercicioSetentaUm(){
+        int valorUm;
+        do{
+            valorUm = LerInt("Informe o primeiro valor: ");
+        }while(valorUm<1 || valorUm >10);
+        for(int i=1;i<=10;i++){
+            System.out.println(valorUm*i);
+        }
+    }
+
+
+    /*Ler 10 valores e escrever quantos desses valores lidos
+    são NEGATIVOS.*/
+    private static void ExercicioSetentaDois(){
+        int contadorNegativos = 0, valor;
+        for(int i = 0; i<10; i++){
+            valor = LerInt("Informe um número: ");
+            if(valor < 0)
+                contadorNegativos++;
+        }
+        System.out.printf("Negativos: %d", contadorNegativos);
+    }
+
+
+    /*Ler 10 valores e escrever quantos desses valores lidos
+    estão no intervalo [10,20] (incluindo os valores 10 e 20 no
+    intervalo) e quantos deles estão fora deste intervalo.*/
+    private static void ExercicioSetentaTres(){
+        int dentroIntervalo = 0, foraIntervalo = 0;
+        int[] valores = new int[10];
+        for(int i=0; i<10 ; i++){
+            valores[i] = LerInt("Informe um número: ");
+            if((valores[i] >=10) && (valores[i]<=20))
+                dentroIntervalo++;
+            else
+                foraIntervalo++;
+        }
+        System.out.printf("Dentro do Intervalo: %d\nFora do Intervalo: %d", dentroIntervalo, foraIntervalo);
+    }
+
+
+    /*Ler 10 valores, calcular e escrever a média aritmética
+    desses valores lidos.*/
+    private static void ExercicioSetentaQuatro(){
+        int somatoria = 0;
+        for(int i=0; i<10 ; i++){
+            somatoria += LerInt("Informe um número: ");
+        }
+        System.out.printf("Media: %.2f", (double)somatoria/10);
+    }
+
+
+    /*Ler o número de alunos existentes em uma turma e,
+    após isto, ler as notas destes alunos, calcular e escrever a
+    média aritmética dessas notas lidas. */
+    private static void ExercicioSetentaCinco(){
+        int somatoria = 0;
+        int alunosTurma = LerInt("Informe o número de alunos na turma: ");
+        for(int i=0; i<alunosTurma ; i++){
+            somatoria += LerInt("Informe uma nota: ");
+        }
+        System.out.printf("Media: %.2f", (double)somatoria/alunosTurma);
+    }
+
+
+    /*Escreva um programa para ler 10 números e ao final
+    da leitura escrever a soma total dos 10 números lidos.*/
+    private static void ExercicioSetentaSeis(){
+        int somatoria = 0;
+        for(int i=0; i<10; i++){
+            somatoria += LerInt("Informe um valor: ");
+        }
+        System.out.printf("Somatório: %d", somatoria);
+    }
+
+    /*Escreva um programa para ler 10 números. Todos os
+    números lidos com valor inferior a 40 devem ser somados.
+    Escreva o valor final da soma efetuada.*/
+    private static void ExercicioSetentaSete(){
+        int somatoria = 0;
+        int[] numeros = new int[10];
+        for(int i=0; i<10; i++){
+            numeros[i] = LerInt("Informe um valor: ");
+            if(numeros[i] < 40)
+                somatoria += numeros[i];
+        }
+        System.out.printf("Somatório: %d", somatoria);
+    }
+
+    /*Ler 2 valores, calcular e escrever a soma dos inteiros
+    existentes entre os 2 valores lidos (incluindo os valores lidos na soma).
+    Considere que o segundo valor lido será sempre maior que o primeiro valor lido.*/
+    private static void ExercicioSetentaOito(){
+        int somatoria = 0;
+        int inicio = LerInt("Informe o primeiro número");
+        int fim = LerInt("Informe o ultimo número");
+        for(int i=inicio; i<=fim; i++){
+            somatoria += i;
+        }
+        System.out.printf("Somatório: %d", somatoria);
+    }
+
+
+    /*Faça um programa que calcule e escreva a média
+    aritmética dos números inteiros entre 15 (inclusive) e 100
+    (inclusive).*/
+    private static void ExercicioSetentaNove(){
+        int somatoria = 0;
+        for(int i=15; i<=100; i++){
+            somatoria += i;
+        }
+        System.out.printf("Somatório: %.2f", (double)somatoria/86);
+    }
+
+
+    /*Uma loja está levantando o valor total de todas as
+    mercadorias em estoque. Escreva um programa que permita a entrada das seguintes informações:
+    a) o número total de mercadorias no estoque;
+    b) o valor de cada mercadoria.
+    Ao final imprimir o valor total em estoque e a média
+    de valor das mercadorias.*/
+    private static void ExercicioOitenta(){
+        int mercadoriasEstoques = LerInt("Informe o número de Mercadorias em Estoque: ");
+        double somatoria = 0;
+        for(int i=0; i<mercadoriasEstoques; i++){
+             somatoria += LerDouble("Informe o preço do produto: ");
+        }
+        System.out.printf("Somatório: %.2f\nMédia: %.2f", somatoria, somatoria/mercadoriasEstoques);
     }
 }
