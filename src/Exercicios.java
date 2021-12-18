@@ -1,6 +1,3 @@
-/*Crie um programa para que apresente seu nome, seu
-celular e sua cidade;*/
-
 import java.util.Scanner;
 
 public class Exercicios {
@@ -91,6 +88,7 @@ public class Exercicios {
                 case 78 -> ExercicioSetentaOito();
                 case 79 -> ExercicioSetentaNove();
                 case 80 -> ExercicioOitenta();
+                case 81 -> ExercicioOitentaUm();
                 default -> continuaMenu = false;
             }
             System.out.println("\n");
@@ -1486,5 +1484,8 @@ public class Exercicios {
              somatoria += LerDouble("Informe o preço do produto: ");
         }
         System.out.printf("Somatório: %.2f\nMédia: %.2f", somatoria, somatoria/mercadoriasEstoques);
+    }
+
+    private static void ExercicioOitentaUm(){
     }
 }
