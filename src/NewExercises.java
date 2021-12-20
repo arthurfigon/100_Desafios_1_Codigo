@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 
 public class NewExercises {
+    static Utils ajuda = new Utils();
     static double[] doubles = new double[10];
 
     public static void main(String[] args) {
@@ -31,6 +32,17 @@ public class NewExercises {
                 case 16 -> ExercicioDezesseis();
                 case 17 -> ExercicioDezessete();
                 case 18 -> ExercicioDezoito();
+                case 19 -> ExercicioDezenove();
+                case 20 -> ExercicioVinte();
+                case 21 -> ExercicioVinteUm();
+                case 22 -> ExercicioVinteDois();
+                case 23 -> ExercicioVinteTres();
+                case 24 -> ExercicioVinteQuatro();
+                case 25 -> ExercicioVinteCinco();
+                case 26 -> ExercicioVinteSeis();
+                case 27 -> ExercicioVinteSete();
+                case 28 -> ExercicioVinteOito();
+                case 29 -> ExercicioVinteNove();
                 default -> continuaMenu = false;
             }
             System.out.println("\n");
@@ -300,6 +312,179 @@ public class NewExercises {
         }else{
             System.out.println("Triângulo Acutângulo!");
         }
+    }
+
+    private static void ExercicioDezenove(){
+        for(int numero=1; numero<=10;numero++){
+            System.out.println("\nTabuada do "+numero);
+            for (int multiplicador=1;multiplicador<=10;multiplicador++){
+                System.out.printf("(%d x %d = %d)  ",numero,multiplicador,multiplicador*numero);
+            }
+        }
+    }
+
+    /*Escreva um programa para exibir os números de 1 até 50 na tela.
+    Faça com que os números estejam sequenciados ne mesma linha e tenham espaçamento entre si.*/
+    private static void ExercicioVinte(){
+        for(int numero=1; numero<=50;numero++){
+            System.out.print(numero+" ");
+
+        }
+    }
+
+    /*Escreva um programa para encontrar todos os números pares entre 1 e 100.
+    Para saber se um número é par, é necessário consultar se o resto da divisão
+    deste número por 2 é igual à 0 (Operador Java para resto de divisão: %).*/
+    private static void ExercicioVinteUm(){
+        for(int numero=1; numero<=100;numero++){
+            if(numero%2==0){
+                System.out.println("Numero: "+numero);
+            }
+        }
+    }
+
+    /*Faça um programa que leia um valor inteiro inserido pelo usuário e resulte na tabuada de
+    1 a 10 do valor lido. Aceitar somente valores entre 1 e 10.*/
+    private static void ExercicioVinteDois(){
+        boolean verificador = false;
+        int valor;
+        do{
+            valor = ajuda.LerInt("Insira o número: ");
+            if (valor >= 1 && valor <= 10){
+                verificador = true;
+            }
+        }while(!verificador);
+        for(int contador = 1 ; contador <= 10; contador++){
+            System.out.printf("%d x %d : %d\n", valor, contador, valor*contador);
+        }
+    }
+
+    /*Crie um programa que leia várias idades e calcule a média entre elas.
+    Caso a maioria seja maior de 18 anos, o console deve mostrar “Aqui tem mais adultos”,
+    se contrário, mostrar outra mensagem.
+     */
+    private static void ExercicioVinteTres(){
+        int quantidadePessoas = ajuda.LerInt("Informe o total de pessoas: ");
+        int somatorioAdultos = 0;
+        int[] listaIdades = new int[quantidadePessoas];
+        for (int i = 0; i<quantidadePessoas; i++){
+            listaIdades[i] = ajuda.LerInt("Informe a idade: ");
+            if(listaIdades[i] >= 18){
+                somatorioAdultos += 1;
+            }
+        }
+        if(somatorioAdultos >= (double)quantidadePessoas/2){
+            System.out.println("Aqui tem mais adultos... Hehe");
+        }else {
+            System.out.println("Aqui tem mais di menó...");
+        }
+    }
+
+    /*Faça um programa que leia 10 números inseridos pelo usuário
+     e imprimir quantos deles são pares e quantos são ímpares.*/
+    private static void ExercicioVinteQuatro(){
+        int[] listaIdades = new int[10];
+        int totalPares = 0;
+        int totalImpares = 0;
+        for (int i = 0; i<10; i++){
+            listaIdades[i] = ajuda.LerInt("Informe a idade: ");
+
+            if(listaIdades[i] % 2 == 0){
+                totalPares += 1;
+            }
+            else{
+                totalImpares += 1;
+            }
+        }
+        System.out.printf("O total de Pares são: %d\n", totalPares);
+        System.out.printf("O total de Impares são: %d\n", totalImpares);
+    }
+
+    /*Utilizando a estrutura de repetição for, faça um programa que receba 10 números
+     e conte quantos deles estão no intervalo [10, 20] e quantos deles estão fora do intervalo,
+     escrevendo estas informações.*/
+    private static void ExercicioVinteCinco(){
+        int[] listaValores = new int[10];
+        int fora = 0;
+        int dentro = 0;
+        for (int i = 0; i<10; i++){
+            listaValores[i] = ajuda.LerInt("Informe um número: ");
+
+            if(listaValores[i] < 10 || listaValores[i] > 20){
+                fora += 1;
+            }
+            else{
+                dentro += 1;
+            }
+        }
+        System.out.printf("Números fora: %d\n", fora);
+        System.out.printf("Números dentro: %d\n", dentro);
+    }
+
+
+    /*Crie um programa que imprima 11 vezes a frase " Hello World!"
+    utilizando uma estrutura sequencial e uma estrutura de repetição while.*/
+    private static void ExercicioVinteSeis(){
+        for (int i = 0; i<=10; i++){
+            System.out.println("Hello World!");
+        }
+        System.out.println("\n");
+        System.out.println("Hello World!");
+        System.out.println("Hello World!");
+        System.out.println("Hello World!");
+        System.out.println("Hello World!");
+        System.out.println("Hello World!");
+        System.out.println("Hello World!");
+        System.out.println("Hello World!");
+        System.out.println("Hello World!");
+        System.out.println("Hello World!");
+        System.out.println("Hello World!");
+        System.out.println("Hello World!");
+    }
+
+    /* Crie um programa para ler 3 notas inseridas por um aluno e mostrar a média delas.
+    Caso a média seja menor que 6.0, o console deverá constar sua média + a mensagem de reprovado.
+    Se maior ou igual, conste sua média + mensagem de aprovação.*/
+    private static void ExercicioVinteSete(){
+        int numeroPessoas = 3;
+        double[] notas = new double[numeroPessoas];
+        double somatorio = 0, media;
+        for (int i = 0; i<numeroPessoas; i++){
+            notas[i] = ajuda.LerDouble("Informe a nota: ");
+            somatorio += notas[i];
+        }
+        media = somatorio/numeroPessoas;
+        if(media >= 6){
+            System.out.printf("Nota: %.2f\nAprovado!", media);
+        } else{
+            System.out.printf("Nota: %.2f\nReprovado...", media);
+        }
+
+    }
+
+    /* Faça um programa que mostre a tabuada de um número que seja inserido pelo usuário.*/
+    private static void ExercicioVinteOito(){
+        int valor = ajuda.LerInt("Insira o número: ");
+        for(int contador = 1 ; contador <= 10; contador++){
+            System.out.printf("%d x %d : %d\n", valor, contador, valor*contador);
+        }
+    }
+
+    /* Faça um programa que peça ao usuário um número entre 12 e 20.
+    Se a pessoa digitar um número diferente, mostrar a mensagem "entrada inválida" e
+    solicitar o número novamente. Se digitar correto mostrar o número digitado.*/
+    private static void ExercicioVinteNove(){
+        boolean verificador = false;
+        int valor;
+        do{
+            valor = ajuda.LerInt("Insira um número dentre 12 e 20: ");
+            if (valor >= 12 && valor <= 20){
+                verificador = true;
+            }else {
+                System.out.println("Número Inválido...");
+            }
+        }while(!verificador);
+        System.out.printf("Número: %d", valor);
     }
 
 
