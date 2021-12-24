@@ -1,5 +1,6 @@
 import util.Utils;
 
+import java.util.Random;
 import java.util.Scanner;
 
 
@@ -43,6 +44,8 @@ public class NewExercises {
                 case 27 -> ExercicioVinteSete();
                 case 28 -> ExercicioVinteOito();
                 case 29 -> ExercicioVinteNove();
+                case 30 -> ExercicioTrinta();
+                case 31 -> ExercicioTrintaUm();
                 default -> continuaMenu = false;
             }
             System.out.println("\n");
@@ -485,6 +488,50 @@ public class NewExercises {
             }
         }while(!verificador);
         System.out.printf("Número: %d", valor);
+    }
+
+    /*Três candidatos concorreram a uma eleição (A, B, C). O usuário deve informar
+    quantos votos cada candidato recebeu, quantos foram os votos brancos e quantos foram os votos nulos.
+    O algoritmo deve calcular e informar: o número total de eleitores, o percentual de votos que cada
+    candidato recebeu (em relação ao número total de eleitores), o percentual de brancos e o percentual de nulos.*/
+    private static void ExercicioTrinta(){
+        int votosCandidatoA = ajuda.LerInt("Informe os votos recebidos pelo candidato A: ");
+        int votosCandidatoB = ajuda.LerInt("Informe os votos recebidos pelo candidato B: ");
+        int votosCandidatoC = ajuda.LerInt("Informe os votos recebidos pelo candidato C: ");
+
+        int votosBranco = ajuda.LerInt("Informe os votos em branco: ");
+        int votosNulo = ajuda.LerInt("Informe os votos nulos: ");
+
+        int totalVotos = votosCandidatoA + votosCandidatoB + votosCandidatoC + votosNulo +votosBranco;
+
+        System.out.printf("Número de eleitores: %d\n", totalVotos);
+        System.out.printf("Candidato A: %.2f%%\n", (double)votosCandidatoA*100/totalVotos);
+        System.out.printf("Candidato B: %.2f%%\n", (double)votosCandidatoB*100/totalVotos);
+        System.out.printf("Candidato C: %.2f%%\n", (double)votosCandidatoC*100/totalVotos);
+        System.out.printf("Nulos: %.2f%%\n", (double)votosNulo*100/totalVotos);
+        System.out.printf("Em Branco: %.2f%%\n", (double)votosBranco*100/totalVotos);
+    }
+
+    /*Imagine uma brincadeira entre dois colegas, na qual um pensa um número e o outro deve fazer
+    chutes até acertar o número imaginado. Como dica, a cada tentativa é dito se o chute foi alto ou baixo.
+    Elabore um algoritmo dentro deste contexto, que leia o número digitado pelo usuário e os chutes,
+    ao final mostre quantas tentativas foram necessárias para descobrir o número.*/
+    private static void ExercicioTrintaUm(){
+
+        Random random = new Random();
+        int numeroFinal = random.nextInt(100);
+        int valor, tentativas = 0;
+        do{
+            valor = LerInt("Informe um número: ");
+            if(valor > numeroFinal){
+                System.out.println("Chutou alto...");
+            }else if(valor < numeroFinal){
+                System.out.println("Chutou baixo...");
+            }
+            tentativas++;
+        }while (numeroFinal != valor);
+
+        System.out.printf("Você acertou!!\nO número era: %d\nTentativas: %d\n",numeroFinal,tentativas);
     }
 
 
