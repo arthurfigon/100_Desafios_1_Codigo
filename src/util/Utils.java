@@ -22,6 +22,12 @@ public class Utils {
         return entrada.nextLine();
     }
 
+    public char LerChar(String pergunta){
+        Scanner entrada = new Scanner(System.in);
+        System.out.println(pergunta);
+        return entrada.next().charAt(0);
+    }
+
     public double somaValoresVetorDouble(double[] vetor){
         double somatorio = 0;
         for(double valor: vetor){
@@ -109,6 +115,12 @@ public class Utils {
     public void printaVetor(int[] vetor){
         for (int i : vetor) {
             System.out.println(i);
+        }
+    }
+
+    public void printaVetorDouble(double[] vetor){
+        for (int i = 0; i < vetor.length; i++) {
+            System.out.println(vetor[i]);
         }
     }
 
