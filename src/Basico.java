@@ -4,10 +4,11 @@ import util.Utils;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Basico {
     public static void main(String[] args) {
-        exercicioDezesete();
+        exercicioDezenove();
     }
 
     public static void exercicioUm() {
@@ -352,7 +353,22 @@ public class Basico {
     }
 
     public static void exercicioDezenove(){
-
+        Utils utils = new Utils();
+        int respostasPositivas = 0;
+        String[] perguntas = {"Telefonou para a vítima?", "Esteve no local do crime?","Mora perto da vítima?",
+        "Devia para a vítima?", "Já   trabalhou   com   a   vítima?"};
+        String[] respostas = new String[perguntas.length];
+        for(int i = 0; i < perguntas.length ; i++){
+            if(utils.LerString(perguntas[i]).toLowerCase(Locale.ROOT).equals("sim")){
+                respostasPositivas++;
+            }
+        }
+        switch (respostasPositivas){
+            case 2 -> System.out.println("Suspeito...");
+            case 3,4 -> System.out.println("Cumplice!");
+            case 5 -> System.out.println("Assassino!!");
+            default -> System.out.println("Normal...");
+        }
     }
 
 
